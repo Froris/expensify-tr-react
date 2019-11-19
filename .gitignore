@@ -1,0 +1,6 @@
+node_modules/
+.vscode/
+public/boundle.js
+public/boundle.js.map
+public/styles.css
+public/styles.css.map

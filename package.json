@@ -1,0 +1,50 @@
+{
+  "name": "public",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest",
+    "dev": "webpack",
+    "prod": "webpack -p --env production",
+    "serve": "webpack-dev-server --open",
+    "start": "node server/server.js",
+    "heroku-postbuild": "npm run prod"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.7.2",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
+    "@babel/preset-env": "^7.7.1",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-syntax-object-rest-spread": "^6.13.0",
+    "css-loader": "^3.2.0",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.0.0",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.7",
+    "webpack-dev-server": "^3.8.0"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.4.4",
+    "core-js": "^3.2.1",
+    "express": "^4.17.1",
+    "moment": "^2.24.0",
+    "react": "^16.9.0",
+    "react-addons-shallow-compare": "^15.6.0",
+    "react-dates": "^12.7.0",
+    "react-dom": "^16.9.0",
+    "react-modal": "^3.10.1",
+    "react-redux": "^7.1.1",
+    "react-router-dom": "^5.0.1",
+    "redux": "^4.0.4",
+    "regenerator-runtime": "^0.13.3",
+    "uuid": "^3.3.3"
+  }
+}
