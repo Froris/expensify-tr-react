@@ -16,18 +16,20 @@ module.exports = (env) => {
         loader: 'babel-loader',
         test: /\.js$/,
         exclude: /node_modules/
-      },{
+      }, 
+      {
         test: /\.s?css$/,
         use: CSSExtract.extract({
           use: [
             {
-              loader:'css-loader', 
+              loader: 'css-loader',
               options: { sourceMap: true }
-            }, 
+            },
             {
               loader: 'sass-loader',
               options: { sourceMap: true }
             }
+          ]
         })
       }]
     },
@@ -37,5 +39,5 @@ module.exports = (env) => {
       contentBase: path.join(__dirname, 'public'),
       historyApiFallback: true
     }
-  };
+  }
 };
