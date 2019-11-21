@@ -7,6 +7,7 @@
     "test": "jest",
     "dev": "webpack",
     "prod": "webpack -p --env production",
+    "dev-server": "webpack-dev-server",
     "start": "node server/server.js",
     "heroku-postbuild": "npm run prod"
   },
@@ -35,6 +36,7 @@
     "core-js": "^3.2.1",
     "express": "^4.17.1",
     "moment": "^2.24.0",
+    "numeral": "^2.0.6",
     "react": "^16.9.0",
     "react-addons-shallow-compare": "^15.6.0",
     "react-dates": "^12.7.0",
