@@ -7,7 +7,6 @@
     "test": "jest",
     "dev": "webpack",
     "prod": "webpack -p --env production",
-    "serve": "webpack-dev-server --open",
     "start": "node server/server.js",
     "heroku-postbuild": "npm run prod"
   },
