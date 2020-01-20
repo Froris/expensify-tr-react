@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render ExpenseList component 1`] = `
+<div>
+  <ExpenseListItem
+    amount={123}
+    createdAt={"1970-01-01T00:00:00.000Z"}
+    description="Rent"
+    id="12311"
+    key="12311"
+    note=""
+  />
+  <ExpenseListItem
+    amount={21}
+    createdAt={2073600000}
+    description="Gum"
+    id="12312221"
+    key="12312221"
+    note=""
+  />
+  <ExpenseListItem
+    amount={11110}
+    createdAt={864000000}
+    description="Gas bill"
+    id="12311123123123"
+    key="12311123123123"
+    note=""
+  />
+</div>
+`;

@@ -4,7 +4,8 @@ import { SingleDatePicker } from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
 
 
-// струткура компонента - класса необходима для принятия имеющихся данных на странице редактирования
+// струткура компонента - класса необходима для создания state, 
+// которое дает увидить изменения при редактировании полей ввода
 export default class ExpenseForm extends React.Component {
   constructor(props) {
     super(props);
@@ -14,15 +15,20 @@ export default class ExpenseForm extends React.Component {
       note: props.expense ? props.expense.note : '',
       amount: props.expense ? (props.expense.amount / 100).toString() : '',
       createdAt: props.expense ? moment(props.expense.createdAt) : moment(),
+
       calendarFocused: false,
       error: ''
+    };
+
+    this.data = {
+      description:  props.expense ? props.expense.description : ''
     };
   }
 
   onDescriptionChange = (e) => {
     const description = e.target.value;
     this.setState(() => ({ description }));
-  };
+  }
 
   onNoteChange = (e) => {
     const note = e.target.value;
@@ -54,6 +60,7 @@ export default class ExpenseForm extends React.Component {
       this.setState(() => ({ error: 'Please provide description and amount.' }));
     } else {
       this.setState(() => ({ error: '' }));
+      // вызов onSubmit родителя с передачей в него объекта
       this.props.onSubmit({
         description: this.state.description,
         amount: parseFloat(this.state.amount, 10) * 100,

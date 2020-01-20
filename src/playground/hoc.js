@@ -1,31 +1,42 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+const newArr = [
+  {
+    id: 12312312313,
+    name: 'Vasya',
+    age: 23
+  },
+  {
+    id: 111233,
+    name: 'Alex',
+    age: 26
+  },
+  {
+    id: 123,
+    name: 'Kolya',
+    age: 13
+  }
+];
 
-const Info = (props) => (
-  <div>
-    <h3>Warning: do not show this to anybody!</h3>
-    <p>User detales: {props.info}</p>
-  </div>    
-);
+const persArr = [];
 
-const withAdminWarning = (WrappedComponent) => {
-  return (props) => (
-    <div>
-      {props.isAdmin && <h2>Here is a confidentional message: </h2>}
-      <WrappedComponent {...props}/>
-    </div>
-  )
-}
+const showPerson = (arr, id) => {
+  return arr.filter((per) => {
+    return id === per.id
+  });
+};
 
-const requireAuthentication = (WrappedComponent) => {
-  return (props) => (
-    <div>
-      {props.isAutho ? <WrappedComponent {...props}/> : <h2>Please, login first!</h2>}
-    </div>
-  )
-}
+const promise = new Promise((resolve, reject) => {
+  const person = showPerson(newArr, 123);
+  if(person){
+    resolve(person)
+  } else {
+    reject(new Error('Error: there is no such person'));
+  }
+}).then((person) => {
+  persArr.push(person);
+  return persArr;
+}).then((val) => console.log(val))
+  .catch((err) => console.log(err));
 
-const AdminInfo = withAdminWarning(Info);
-const AuthInfo = requireAuthentication(AdminInfo);
-
-ReactDOM.render(<AuthInfo isAutho={false} isAdmin={true} info='Some user details'/>, document.getElementById('app'));
+  let foo = {n: 1}
+  const bar = foo
+  foo.x = foo = {n:2}

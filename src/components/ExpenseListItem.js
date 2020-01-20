@@ -4,7 +4,7 @@ import moment from 'moment';
 import numeral from 'numeral';
 
 
-const ExpenseListItem = ({ id, description, amount, createdAt }) => (
+const ExpenseListItem = ({ id, description, amount, createdAt, note }) => (
   <div>
     <Link to={`/edit/${id}`}>
       <h3>Description: {description}</h3>
