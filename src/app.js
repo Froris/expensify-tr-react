@@ -7,13 +7,9 @@ import configureStore from './store/configureStore';
 import getVisibleExpenses from './selectors/expenses';
 import './styles/styles.scss';
 import './firebase/firebase';
+import 'react-dates/lib/css/_datepicker.css';
 
 const store = configureStore();
-
-store.subscribe(() => {
-  const state = store.getState();
-  const filteredExpenses = getVisibleExpenses(state.expenses, state.filters)
-});
  
 const jsx = (
     <Provider store={store}>

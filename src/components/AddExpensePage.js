@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import ExpenseForm from './ExpenseForm';
 import { startAddExpense } from '../actions/expenses';
 
+// Класс - компонент для разгрузки верстки от инлайн функций
 export class AddExpensePage extends React.Component {
   // функция, вызывающая action creator
   onSubmit = (expense) => {
