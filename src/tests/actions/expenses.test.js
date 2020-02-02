@@ -1,10 +1,19 @@
-import { startAddExpense, addExpense, removeExpense, editExpense } from "../../actions/expenses";
+import { startAddExpense, addExpense, removeExpense, editExpense, startSetExpenses } from "../../actions/expenses";
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import expenses from '../fixtures/expenses';
 import database from '../../firebase/firebase';
 
-const createMockStore = configureMockStore([thunk])
+const createMockStore = configureMockStore([thunk]);
+
+beforeEach((done) => {
+  const expenseData = {};
+  // Преобразуем в подходящий формат с id для отправки в базу
+  expenses.forEach(({id, description, note, amount, createdAt }) => {
+    expenseData[id] = {description, note, amount, createdAt}
+  });
+  database.ref('expenses').set(expenseData).then(() => done());
+});
 
 // Тестируем actions в изоляции от хранилища
 test('Should setup action edit ogject', () => {
@@ -15,7 +24,7 @@ test('Should setup action edit ogject', () => {
     updates: {
       note: 'Cat food'
     }
-  });
+  }); 
 });
 
 test('should return expense data correctly', () => {
@@ -61,6 +70,7 @@ test('should add expense to store and database', (done) => {
 
 // startAddExpense test with default data 
 test('should setup default values for addExpense action', (done) => {
+  // Создаем хранилище
   const store = createMockStore({});
   const defaultData = {
     description: '',
@@ -69,8 +79,11 @@ test('should setup default values for addExpense action', (done) => {
     createdAt: 0  
   }
 
+  // Делаем диспэтч и через промис проверяем отправленные данные
   store.dispatch(startAddExpense({})).then(() => {
+    // получаем отправленные actions (сам action и его данные) из хранилища
     const actions = store.getActions();
+    // сравниваем action и его данные
     expect(actions[0]).toEqual({
       type: 'ADD_EXPENSE',
       expense: {
@@ -79,10 +92,27 @@ test('should setup default values for addExpense action', (done) => {
       }
     })
 
+    // Проверяем наличие нового expense в базе данных
+    // Возвращаем промис со значением объекта expense
     return database.ref(`expenses/${actions[0].expense.id}`).once('value');
 
   }).then((snapshot) => {
+    // Сравниваем полученное значение с дефолтными данными
     expect(snapshot.val()).toEqual(defaultData)
     done();
   })
 });
+
+// SET_EXPENSES test
+test('should fetch and set expenses to the store', (done) => {
+  const store = createMockStore({});
+  store.dispatch(startSetExpenses()).then(() => {
+    const actions = store.getActions();
+    expect(actions[0]).toEqual({
+      type: 'SET_EXPENSES',
+      expenses
+    });
+    
+    done()
+  });
+})
