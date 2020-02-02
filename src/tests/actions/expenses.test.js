@@ -1,4 +1,4 @@
-import { startAddExpense, addExpense, removeExpense, editExpense, startSetExpenses } from "../../actions/expenses";
+import { startAddExpense, addExpense, removeExpense, editExpense, startSetExpenses, startEditExpense } from "../../actions/expenses";
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import expenses from '../fixtures/expenses';
@@ -92,8 +92,8 @@ test('should setup default values for addExpense action', (done) => {
       }
     })
 
-    // Проверяем наличие нового expense в базе данных
-    // Возвращаем промис со значением объекта expense
+    // Проверяем наличие нового expense в базе данных путем
+    // возвращения промиса с value объекта expense
     return database.ref(`expenses/${actions[0].expense.id}`).once('value');
 
   }).then((snapshot) => {
@@ -116,3 +116,25 @@ test('should fetch and set expenses to the store', (done) => {
     done()
   });
 })
+
+// EDIT_EXPENSE
+test('should edit expense from firebase', (done) => {
+  const store = createMockStore({});
+  const id = expenses[0].id
+  const updates = { note: 'New description of the Rent' }
+
+  store.dispatch(startEditExpense(id, updates)).then(() => {
+    const actions = store.getActions();
+    expect(actions[0]).toEqual({
+      type: 'EDIT_EXPENSE',
+      id,
+      updates
+    });
+
+    return database.ref(`expenses/${id}`).once('value');
+
+  }).then((snapshot) => {
+    expect(snapshot.val().note).toEqual(updates.note);
+    done();
+  });
+});
