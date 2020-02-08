@@ -2,6 +2,8 @@ import React from 'react';
 import ExpenseList from './ExpenseList';
 import ExpenseListFilters from './ExpenseListFilters';
 import TotalExpenseHeader from './TotalExpensesHeader';
+import { connect } from 'react-redux';
+
 const ExpenseHomePage = () => (
   <div>
     <TotalExpenseHeader />
@@ -10,4 +12,4 @@ const ExpenseHomePage = () => (
   </div>
 );
 
-export default ExpenseHomePage;
+export default connect()(ExpenseHomePage);

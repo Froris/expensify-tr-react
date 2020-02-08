@@ -13,16 +13,8 @@ const firebaseConfig = {
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+
 const database = firebase.database();
+const googleAuthProovider = new firebase.auth.GoogleAuthProvider();
 
-// database.ref('expenses').on('value', (snapshot) => {
-//   const expenses = []
-//   snapshot.forEach((childSnapshot) => {
-//     expenses.push({
-//       id: childSnapshot.key,
-//       ...childSnapshot.val()
-//     });
-//   });
-// })
-
-export { firebase, database as default };
+export { firebase, googleAuthProovider, database as default };
