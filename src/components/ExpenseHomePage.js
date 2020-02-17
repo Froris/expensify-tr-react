@@ -5,10 +5,12 @@ import TotalExpenseHeader from './TotalExpensesHeader';
 import { connect } from 'react-redux';
 
 const ExpenseHomePage = () => (
-  <div>
+  <div className="main-content">
     <TotalExpenseHeader />
-    <ExpenseListFilters />
-    <ExpenseList />
+    <div className="content-wrapper">
+      <ExpenseListFilters />
+      <ExpenseList />
+    </div>
   </div>
 );
 

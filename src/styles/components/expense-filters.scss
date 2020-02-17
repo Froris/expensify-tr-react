@@ -1,0 +1,52 @@
+.filters-wrapper {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.80);
+  color: white;
+  .filters__search {
+    margin-left: 10px;
+    padding: 5px;
+    background-color: transparent;
+    color: white;
+    border: 1px solid $color-blue;
+    border-radius: 5px;
+  }
+  .filters__select {
+    margin: 10px;
+    padding: 5px;
+    width: 100px;
+    border: 1px solid $color-blue;
+    border-radius: 5px;
+  }
+}
+
+.DateRangePicker {
+  margin-top: 10px;
+  margin-left: 10px;
+  .DateInput {
+    width: 100px;
+    .DateInput__display-text {
+      font-size: $m-size;
+    }
+  }
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 374px) {
+  .filters__search {
+    width: 170px;
+  }
+
+  .DateRangePicker {
+    margin-left: 0px;
+  }
+}
+
+@media only screen and (min-device-width : 500px){
+  .filters-wrapper {
+    .filters__search {
+      width: 250px;
+    }
+  }
+}
+

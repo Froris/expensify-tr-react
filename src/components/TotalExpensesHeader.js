@@ -8,9 +8,9 @@ const ExpenseSummary = ({expensesCount, expensesAmount}) => {
   const formattedExpenses = numeral(expensesAmount / 100).format('$0,0.00');
 
   return (
-    <div>
+    <div className="total-wrapper">
       <h3>
-        Viewing {expensesCount} expenses totaling: {formattedExpenses}
+        Viewing {expensesCount} expenses totaling: <span className="total-amount">{formattedExpenses}</span>
       </h3>
     </div>
   )

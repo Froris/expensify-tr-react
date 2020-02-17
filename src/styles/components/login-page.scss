@@ -1,0 +1,86 @@
+.login-page {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('/images/170321105422-tokyo-top-50---street-crossing.jpg') no-repeat 50% 50%;
+  background-size: cover;
+  h1 {
+    margin-bottom: 50px;
+    color: white;
+    font-size: $l-size;
+    border-bottom: $color-blue 5px solid;
+  }
+  h3 {
+    color: white;
+    padding-bottom: 20px;
+    font-size: $l-size;
+  }
+  .login-box-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80vw;
+    height: 50vh;
+    background-color: rgba(0, 0, 0, 0.750);
+    border-radius: 5px;;
+  }
+  button {
+    border: none;
+    position: relative;
+    border-radius: 5px;
+    padding-left: 10px;
+    text-align: start;
+    width: 200px;
+    height: 50px;
+    font-size: $m-size;
+    color: $color-blue;
+    background-color: white;
+    &::before {
+      content: url('/images/icons/Google__G__Logo.svg');
+      display: block;
+      position: absolute;
+      width: 35px;
+      height: 35px;
+      right: 3%;
+      top: 15%;
+    }
+  }
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+  .login-page {
+    h3 {
+      font-size: $m-size;
+    }
+  }
+}
+ 
+@media only screen and (min-device-width : 768px) and (max-device-width : 1400px) {
+  .login-page {
+    .login-box-wrapper {
+      width: 50vw;
+      height: 50vh;
+    }
+    h3 {
+      font-size: $l-size;
+    }
+  }
+}
+ 
+@media only screen and (min-device-width : 1440px) {
+  .login-page {
+    .login-box-wrapper {
+      width: 50vw;
+      height: 50vh;
+    }
+    h1 {
+      font-size: $xl-size;
+    }
+    h3 {
+      font-size: $l-size;
+    }
+  }
+}

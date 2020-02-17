@@ -11,10 +11,10 @@ export const PrivateRoute = ({ isAuthenticaded, component: Component, ...rest })
   // Передаем rest в свойства component/Component через props
   <Route {...rest} component={(props) => (
     isAuthenticaded ? (
-      <div>
+      <React.Fragment>
         <Header />
         <Component {...props} />
-      </div>
+      </React.Fragment>
     ) : (
       <Redirect to='/' />
     )

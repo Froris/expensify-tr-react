@@ -1,0 +1,145 @@
+header {
+  background-color:  rgb(42, 42, 42);
+  color: white;
+  h1 {
+    margin-left: 5px;
+  }
+  a {
+    display: inline-block;
+    margin: 10px;
+    font-size: 2.5rem;
+    text-decoration: none;
+    color: $color-blue;
+    font-size: $l-size;
+    position: relative;
+    &.is-active {
+      color: white;
+      border-bottom: 2px solid rgb(142, 168, 253);
+    }
+  }
+
+  .nav-wrapper {
+    display: flex;
+  }
+
+  button {
+    margin-left: auto;
+    margin-right: 10px;
+    font-size: 2.5rem;
+    border: none;
+    background: transparent;
+    color: rgb(255, 135, 135);
+  }
+}
+
+// Total expense header styles
+.total-wrapper {
+  width: 17vw;
+  margin: 10px 0 10px 0;
+  padding: 20px;
+  background-color: rgb(42, 42, 42);
+  color: white;
+  font-size: $s-size;
+  .total-amount {
+    color: rgb(178, 240, 85);
+  }
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 374px) {
+  header {
+    h1 {
+      padding-top: 5px;
+      font-size: 2.5rem;
+    }
+    a {
+      font-size: 1.7rem;
+      margin: 10px 5px;
+    }
+
+    button {
+      font-size: 1.7rem;
+    }
+  }
+
+  .total-wrapper {
+    width: 80vw;
+  }
+}
+
+@media only screen and (min-device-width : 375px) and (max-device-width : 500px) {
+  header {
+    h1 {
+      padding-top: 5px;
+      font-size: 2.5rem;
+    }
+    a {
+      font-size: $m-size;
+      margin: 10px;
+    }
+    button {
+      font-size: $m-size;
+    }
+  }
+
+  .total-wrapper {
+    width: 60vw;
+  }
+}
+
+@media only screen and (min-device-width : 501px) and (max-device-width : 1023px) {
+  header {
+    h1 {
+      padding-top: 5px;
+      font-size: $l-size;
+    }
+  }
+
+  .total-wrapper {
+    width: 50vw;
+    font-size: $m-size;
+  }
+}
+ 
+@media only screen and (min-device-width : 1024px) and (max-device-width : 1440px) {
+  header {
+    h1 {
+      margin-left: 20px;
+      padding-top: 20px;
+    }
+
+    .nav-wrapper {
+      padding: 10px 30px;
+    }
+
+    button {
+      margin-right: 50px;
+    }
+  }
+
+  .total-wrapper {
+    width: 40vw;
+    font-size: $m-size;
+  }
+}
+
+@media only screen and (min-device-width : 1500px) {
+  header {
+    h1 {
+      margin-left: 20px;
+      padding-top: 20px;
+    }
+
+    .nav-wrapper {
+      padding: 10px 30px;
+    }
+
+    button {
+      margin-right: 50px;
+    }
+  }
+
+  .total-wrapper {
+    width: 25vw;
+    font-size: $m-size;
+  }
+}

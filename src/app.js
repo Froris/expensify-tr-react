@@ -22,9 +22,9 @@ const renderApp = () => {
 }
  
 const jsx = (
-    <Provider store={store}>
-      <AppRouter />
-    </Provider>
+  <Provider store={store}>
+    <AppRouter />
+  </Provider>
 )
 
 ReactDOM.render(<p>Loading...</p>, document.getElementById('app'));

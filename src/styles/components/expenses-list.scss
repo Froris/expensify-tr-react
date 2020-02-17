@@ -1,0 +1,42 @@
+.expenses-list {
+  width: 100%;
+  margin-top: 10px;
+  padding: 0;
+  list-style: none;
+  background-color: rgba(0, 0, 0, 0.85);
+  .list-item, .list-item-empty {
+    margin: 10px 0;
+    padding: 5px 0 15px 15px;
+    border-bottom: 2px solid $color-blue;
+    color: white;
+    a {
+      display: inline-block;
+      margin-bottom: 10px;
+      text-decoration: none;
+      color: $color-blue;
+    }
+    .amount {
+      color: rgb(178, 240, 85);
+    }
+  }
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 374px) {
+
+}
+
+@media only screen and (min-device-width : 375px) and (max-device-width : 500px) {
+
+}
+
+@media only screen and (min-device-width : 501px) and (max-device-width : 1023px) {
+
+}
+ 
+@media only screen and (min-device-width : 1024px) and (max-device-width : 1440px) {
+
+}
+
+@media only screen and (min-device-width : 1500px) {
+
+}

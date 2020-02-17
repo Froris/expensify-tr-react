@@ -3,12 +3,13 @@ import { connect } from 'react-redux';
 import { startLogin } from '../actions/auth';
 
 export const LoginPage = ({ startLogin }) => (
-  <div>
-    <h3>Please login</h3>
-    <input type='text' placeholder='Login'/>
-    <input type ='password' />
-    <button onClick={startLogin}> Login </button>
-  </div>
+  <section className="login-page">
+    <div className="login-box-wrapper">
+      <h1>Expen$ify App</h1>
+      <h3>Please login</h3>
+      <button onClick={startLogin}> Login with Google </button>
+    </div>
+  </section>
 );
 
 const mapDispatchToProps = (dispatch) => ({

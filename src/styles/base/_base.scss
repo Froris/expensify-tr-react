@@ -1,14 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 html {
   font-size: 62.5%;
 }
 
 body {
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: 'Assistant',Helvetica, Arial, sans-serif;
   font-size: $m-size;
+  background: url('/images/170321105422-tokyo-top-50---street-crossing.jpg') no-repeat 50% 50%;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
-button {
+.submit, .remove {
   cursor: pointer;
+  border: 2px solid $color-blue;
+  border-color: rgb(178, 240, 85);
+  border-radius: 5px;
+  padding: 9px;
+  background-color: rgba(0, 0, 0, 0.808);
+  color: rgb(178, 240, 85);
+  font-weight: 700;
+}
+.remove {
+  color: rgb(255, 135, 135);
+  border-color: rgb(255, 135, 135);
 }
 
 button:disabled {
@@ -17,4 +36,8 @@ button:disabled {
 
 .is-active {
   font-weight: bold;
+}
+
+#app {
+  height: 100%;
 }

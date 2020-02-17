@@ -4,17 +4,17 @@ import ExpenseListItem from './ExpenseListItem';
 import selectExpenses from '../selectors/expenses';
 
 export const ExpenseList = (props) => (
-  <div>
+  <ul className="expenses-list">
     {
       props.expenses.length === 0 ? (
-        <p>No expenses</p>
+       <li className="list-item-empty"><p>No expenses</p></li>
       ) : (
         props.expenses.map((expense) => {
           return <ExpenseListItem key={expense.id} {...expense} />; // props.expense => props.id, amount и т.д. => id
         })
       )      
     }
-  </div>
+  </ul>
 );
 
 const mapStateToProps = (state) => {
