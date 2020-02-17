@@ -7,7 +7,7 @@ export const LoginPage = ({ startLogin }) => (
     <div className="login-box-wrapper">
       <h1>Expen$ify App</h1>
       <h3>Please login</h3>
-      <button onClick={startLogin}> Login with Google </button>
+      <button className="google-login" onClick={startLogin}> Login with Google </button>
     </div>
   </section>
 );
